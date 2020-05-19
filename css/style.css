@@ -53,13 +53,13 @@ body {
   height: auto;
 }
 
-.content h1 {
+.content h1, .content h2 {
   color: #d10100;
   text-shadow: 0 0 2px #000;
   font-family: "Courier New";
 }
 
-.content p {
+.content p, ul {
   line-height: 1.4em;
   font-family: "Helvetica";
   text-align: justify;
