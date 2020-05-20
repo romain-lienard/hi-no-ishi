@@ -1672,8 +1672,8 @@ $.magnificPopup.registerModule('gallery', {
 		enabled: false,
 		arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
 		preload: [0,2],
-		navigateByImgClick: true,
-		arrows: true,
+		navigateByImgClick: false,
+		arrows: false,
 
 		tPrev: 'Previous (Left arrow key)',
 		tNext: 'Next (Right arrow key)',
@@ -1692,25 +1692,25 @@ $.magnificPopup.registerModule('gallery', {
 
 			_wrapClasses += ' mfp-gallery';
 
-			_mfpOn(OPEN_EVENT+ns, function() {
-
-				if(gSt.navigateByImgClick) {
-					mfp.wrap.on('click'+ns, '.mfp-img', function() {
-						if(mfp.items.length > 1) {
-							mfp.next();
-							return false;
-						}
-					});
-				}
-
-				_document.on('keydown'+ns, function(e) {
-					if (e.keyCode === 37) {
-						mfp.prev();
-					} else if (e.keyCode === 39) {
-						mfp.next();
-					}
-				});
-			});
+			// _mfpOn(OPEN_EVENT+ns, function() {
+      //
+			// 	if(gSt.navigateByImgClick) {
+			// 		mfp.wrap.on('click'+ns, '.mfp-img', function() {
+			// 			if(mfp.items.length > 1) {
+			// 				mfp.next();
+			// 				return false;
+			// 			}
+			// 		});
+			// 	}
+      //
+			// 	_document.on('keydown'+ns, function(e) {
+			// 		if (e.keyCode === 37) {
+			// 			mfp.prev();
+			// 		} else if (e.keyCode === 39) {
+			// 			mfp.next();
+			// 		}
+			// 	});
+			// });
 
 			_mfpOn('UpdateStatus'+ns, function(e, data) {
 				if(data.text) {
@@ -1718,27 +1718,27 @@ $.magnificPopup.registerModule('gallery', {
 				}
 			});
 
-			_mfpOn(MARKUP_PARSE_EVENT+ns, function(e, element, values, item) {
-				var l = mfp.items.length;
-				values.counter = l > 1 ? _replaceCurrTotal(gSt.tCounter, item.index, l) : '';
-			});
+			// _mfpOn(MARKUP_PARSE_EVENT+ns, function(e, element, values, item) {
+			// 	var l = mfp.items.length;
+			// 	values.counter = l > 1 ? _replaceCurrTotal(gSt.tCounter, item.index, l) : '';
+			// });
 
-			_mfpOn('BuildControls' + ns, function() {
-				if(mfp.items.length > 1 && gSt.arrows && !mfp.arrowLeft) {
-					var markup = gSt.arrowMarkup,
-						arrowLeft = mfp.arrowLeft = $( markup.replace(/%title%/gi, gSt.tPrev).replace(/%dir%/gi, 'left') ).addClass(PREVENT_CLOSE_CLASS),
-						arrowRight = mfp.arrowRight = $( markup.replace(/%title%/gi, gSt.tNext).replace(/%dir%/gi, 'right') ).addClass(PREVENT_CLOSE_CLASS);
-
-					arrowLeft.click(function() {
-						mfp.prev();
-					});
-					arrowRight.click(function() {
-						mfp.next();
-					});
-
-					mfp.container.append(arrowLeft.add(arrowRight));
-				}
-			});
+			// _mfpOn('BuildControls' + ns, function() {
+			// 	if(mfp.items.length > 1 && gSt.arrows && !mfp.arrowLeft) {
+			// 		var markup = gSt.arrowMarkup,
+			// 			arrowLeft = mfp.arrowLeft = $( markup.replace(/%title%/gi, gSt.tPrev).replace(/%dir%/gi, 'left') ).addClass(PREVENT_CLOSE_CLASS),
+			// 			arrowRight = mfp.arrowRight = $( markup.replace(/%title%/gi, gSt.tNext).replace(/%dir%/gi, 'right') ).addClass(PREVENT_CLOSE_CLASS);
+      //
+			// 		arrowLeft.click(function() {
+			// 			mfp.prev();
+			// 		});
+			// 		arrowRight.click(function() {
+			// 			mfp.next();
+			// 		});
+      //
+			// 		mfp.container.append(arrowLeft.add(arrowRight));
+			// 	}
+			// });
 
 			_mfpOn(CHANGE_EVENT+ns, function() {
 				if(mfp._preloadTimeout) clearTimeout(mfp._preloadTimeout);
