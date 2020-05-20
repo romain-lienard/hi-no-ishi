@@ -13,6 +13,10 @@
   object-fit: contain;
 }
 
+.thumbnail {
+  display: none;
+}
+
 /* Style the buttons */
 .content .btn {
   border: none;
@@ -46,6 +50,8 @@
 }
 
 .image-caption {
+  font-family: "Helvetica";
+  font-size: 0.8em;
   color: white;
 }
 

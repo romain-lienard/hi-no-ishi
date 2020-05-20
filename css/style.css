@@ -43,6 +43,7 @@ body {
   text-align: center;
   background-color: #d10100;
   font-family: "Courier New";
+  z-index: 1;
 }
 
 .content {
