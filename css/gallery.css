@@ -38,7 +38,7 @@
 /* Add a dark background color to the active button */
 .content .btn.active {
   background-color: #d10100;
-   color: white;
+  color: white;
 }
 
 /* The "show" class is added to the filtered elements */
@@ -63,7 +63,7 @@
   bottom: 4px;
   width: 100%;
   padding: 0px;
-  background: rgba(200,0,0,.8);
+  background: rgba(200, 0, 0, .8);
 }
 
 .image-container:hover .image-caption {
